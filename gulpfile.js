@@ -8,12 +8,6 @@ const resolve = require('rollup-plugin-node-resolve');
 const commonjs = require('rollup-plugin-commonjs');
 const cleanCSS = require('gulp-clean-css');
 
-// Tâche test
-gulp.task('test', function(done) {
-    console.log('Salut !');
-    done();
-})
-
 
 // Tâche browser-sync
 gulp.task('browser-sync', function() {
@@ -50,7 +44,6 @@ gulp.task('scripts', gulp.series('clear-scripts', 'update-scripts'));
 gulp.task('watch', function() {
     gulp.watch('src/assets/styles/scss/**/*.scss', gulp.series('sass'));
     gulp.watch('src/**/*.html', browserSync.reload);
-    gulp.watch('src/assets/scripts/vanilla/**/*.js', gulp.series('scripts'));
 }); 
 
 
@@ -79,9 +72,3 @@ gulp.task('build-template', function() {
 
 
 gulp.task('build', gulp.series('build-styles', 'build-fonts', 'build-img', 'build-template'));
-
-
-// gulp.task('build-scripts', function(){
-//     return gulp.src('src/assets/scripts/**/*.js')
-//     .pipe(gulp.dest('dist/assets/scripts'))
-// });
