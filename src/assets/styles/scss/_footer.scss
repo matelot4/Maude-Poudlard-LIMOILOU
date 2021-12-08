@@ -1,0 +1,293 @@
+@use "variables";
+@use "boutons";
+@use "mixins";
+
+
+footer {
+  grid-column: 1/2;
+  grid-row: 3/4;
+  background-color: variables.$couleurprimaire;
+  padding-bottom: 0.5rem;
+  margin-top: 50px;
+
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  h4 {
+    text-transform: uppercase;
+    margin-left: 20px;
+  }
+
+  .accordeons {
+    padding: 1rem 0;
+    display: block;
+
+    button {
+      background-color: transparent;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: 50px;
+      align-items: center;
+      cursor: pointer;
+      border-top: none;
+      border-bottom: 1px solid black;
+      border-left: none;
+      border-right: none;
+
+      span {
+        text-transform: uppercase;
+        font-weight: 700;
+        padding-left: 20px;
+
+        &:hover,
+        &:active,
+        &:focus {
+          color: white;
+        }
+      }
+
+      img {
+        padding-right: 20px;
+      }
+    }
+
+    button:first-child {
+      border-top: 1px solid black;
+    }
+  }
+
+  .container-s-medias {
+    h5 {
+      text-transform: uppercase;
+      font-size: 16px;
+      margin-left: 20px;
+      margin-bottom: 0;
+    }
+
+    .s-medias {
+      margin: 1.5rem 0;
+      display: flex;
+    }
+  }
+
+  a {
+    text-decoration: none;
+    padding: 1rem;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: black;
+    }
+  }
+
+  .liens-footer {
+    margin-bottom: 2rem;
+    font-size: 14px;
+  }
+
+  .footer-div-1 {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    img {
+      width: 50px;
+      height: 100%;
+    }
+    a {
+      margin: 0.5rem;
+      padding: 0.5rem;
+      background-color: rgba(0, 0, 0, 0.418);
+
+      &:hover,
+      &:active,
+      &:focus {
+        color: white;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .footer-div-2 {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0.5rem;
+
+    a {
+      padding: 0.5rem;
+    }
+  }
+
+  .footer-div-3 {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 1rem;
+
+    button {
+      @include mixins.bouton;
+      margin: 0 auto;
+      border-radius: 0;
+      padding: 18px;
+      margin-right: 20px;
+    }
+
+    label {
+      flex-grow: 1;
+      padding-left: 20px;
+      input {
+        width: 100%;
+        height: 50px;
+      }
+    }
+  }
+  small,
+  p {
+    margin: 0;
+    padding: 1rem;
+    text-align: justify;
+    font-size: 12px;
+  }
+
+  .footer-desktop {
+    display: flex;
+    display: none;
+
+    div {
+      padding: 1rem;
+    }
+
+    ul {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    li {
+      padding: 5px 0;
+    }
+    a {
+      font-size: 12px;
+      padding: 0;
+      text-transform: none;
+
+      &:hover,
+      &:focus,
+      a:active {
+        border: none;
+        color: white;
+        font-weight: 400;
+      }
+    }
+  }
+}
+
+@include mixins.breakpoint(tablet-plus) {
+  footer {
+    grid-column: 1/13;
+    display: grid;
+    grid-template-columns: 300px repeat(12, auto);
+    grid-template-rows: auto auto 270px repeat(4, auto);
+
+    .footer-div-1 {
+      grid-column: 1/2;
+      grid-row: 1/2;
+      margin-left: 10px;
+      a {
+        max-width: 200px;
+      }
+      img {
+        height: 50px;
+        width: 50px;
+      }
+    }
+
+    .footer-div-2 {
+      grid-row: 2/3;
+      grid-column: 1/4;
+      height: auto;
+      margin-left: 30px;
+    }
+
+    .footer-desktop {
+      display: flex;
+      flex: 2 1 0%;
+      flex-wrap: wrap;
+      grid-row: 1/5;
+      grid-column: 2/13;
+      justify-content: center;
+
+      div {
+        width: 200px;
+      }
+    }
+
+    .accordeons {
+      display: none;
+    }
+
+    .footer-div-1 {
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .inscription {
+      grid-row: 5/6;
+      grid-column: 1/4;
+      margin-left: 30px;
+    }
+
+    .footer-div-3 {
+      grid-row: 6/7;
+      grid-column: 1/4;
+      width: 300px;
+      label,
+      input {
+        width: 250px !important;
+        margin-left: 15px;
+        padding: 0;
+      }
+
+      button {
+        cursor: pointer;
+      }
+    }
+
+    .container-liens-footer {
+      display: flex;
+      grid-row: 7/8;
+      grid-column: 1/9;
+      margin-left: 20px;
+    }
+
+    p {
+      grid-row: 8/9;
+      grid-column: 1/13;
+      margin-left: 30px;
+      max-width: 1500px;
+    }
+
+    .container-s-medias {
+      grid-row: 6/7;
+      grid-column: 7/12;
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+
+      h5 {
+        width: 230px;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@include mixins.breakpoint(desktop) {
+  .container-s-medias {
+    margin-left: 500px;
+  }
+}

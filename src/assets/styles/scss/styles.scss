@@ -1,0 +1,30 @@
+@use "variables";
+@use "boutons";
+@use "header";
+@use "mixins";
+@use "main";
+@use "footer";
+@use "fonts";
+
+body {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto 1fr;
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Quicksand", sans-serif;
+
+  span {
+    font-family: "Quicksand", sans-serif;
+  }
+
+  li {
+    list-style-type: none;
+  }
+}
+
+@include mixins.breakpoint(tablet-plus) {
+  body {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}

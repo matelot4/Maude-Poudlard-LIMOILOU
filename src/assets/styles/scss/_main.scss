@@ -1,0 +1,496 @@
+@use "variables";
+@use "boutons";
+@use "mixins";
+
+main {
+  grid-column: 1/2;
+  grid-row: 2/3;
+  max-width: 100rem;
+  // margin: 0 auto;
+}
+
+//  SECTION HERO
+
+main {
+  h2 {
+    font-size: 20px;
+    margin-left: 5%;
+  }
+
+  #hero {
+    .banniere-principale {
+      height: 388px;
+      position: relative;
+
+      .maude-intro {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .container-intro {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translatex(-50%);
+        margin: 1rem 0;
+        text-align: center;
+
+        div:first-child {
+          background-color: rgba(0, 0, 0, 0.616);
+          padding: 0.5rem;
+          border-radius: 10px;
+        }
+
+        h1 {
+          font-size: 30px;
+        }
+        h1,
+        p {
+          margin: 0;
+          color: variables.$couleurprimaire;
+        }
+      }
+
+      .container {
+        display: flex;
+        min-width: 300px;
+        justify-content: center;
+      }
+    }
+  }
+
+  // SECTION BOUTON CATÉGORIES LIENS ANNÉES 1 À APRÈS POUDLARD
+
+  #boutons-categories {
+    @include mixins.nav;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem;
+
+    h2 {
+      visibility: hidden;
+      font-size: 1px;
+    }
+    // juste pour le validator oups ahah
+
+    span {
+      font-size: 13px;
+    }
+    ul {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    li {
+      margin: 10px;
+    }
+
+    a {
+      color: black;
+      display: flex;
+      flex-direction: column;
+
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: underline;
+      }
+    }
+
+    div {
+      display: flex;
+    }
+
+    div > img {
+      margin: auto;
+      width: 50px;
+      height: 50px;
+      padding-bottom: 10px;
+    }
+  }
+
+  // SECTION PREMIER CAROUSSEL - PREMIERS PAS À POUDLARD
+
+  .caroussel-premier-pas,
+  .caroussel-quidditch {
+    overflow-x: hidden;
+    position: relative;
+
+    ul {
+      padding: 0;
+      display: flex;
+    }
+
+    // BARRE DE SCROLL
+
+    ::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: variables.$couleursecondaire;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: variables.$couleurprimaire;
+    }
+
+    .btn-slider {
+      position: absolute;
+      right: 1%;
+      top: 38%;
+      background-color: variables.$couleursecondaire;
+      border: none;
+      border-radius: 50%;
+      height: 35px;
+      width: 35px;
+      cursor: pointer;
+
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: black;
+      }
+    }
+
+    .container-caroussel {
+      display: flex;
+      overflow-x: scroll;
+      padding: 0;
+      scrollbar-width: thin;
+
+      a {
+        text-decoration: none;
+      }
+
+      .container-carte {
+        margin: 0 1rem 1rem 1rem;
+        position: relative;
+
+        p {
+          font-size: 14px;
+          color: black;
+        }
+
+        h3 {
+          margin: 0;
+          font-size: 15px;
+          color: black;
+          height: 35px;
+          padding-top: 5px;
+          font-size: 1em;
+
+          &:hover,
+          &:active,
+          &:focus {
+            text-decoration: underline;
+          }
+        }
+
+        .contenu-carte {
+          display: flex;
+
+          span {
+            @include mixins.bouton;
+            align-items: center;
+            cursor: pointer;
+            padding: 0 10px;
+            height: 40px;
+            max-width: 90px;
+            flex-basis: 250px;
+            justify-content: center;
+          }
+        }
+
+        .image-carte {
+          width: 325px;
+          height: 325px;
+          margin: 10px;
+          position: relative;
+
+          .coeur {
+            position: absolute;
+            top: 0;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+
+            .coeur-icon {
+              position: absolute;
+              padding: 5px;
+              top: 0;
+              left: 0;
+              width: 20px;
+              height: 20px;
+            }
+          }
+
+          img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .meilleurs-moments,
+  .caroussel-quidditch {
+    h2 {
+      padding-top: 20px;
+    }
+  }
+  //  SECTIONS MÉSAVENTURES DE LA VOITURE VOLANTE
+
+  .mesaventures,
+  .moments-cours {
+    ul {
+      padding: 0;
+    }
+  }
+
+  .container-meilleurs-moments,
+  .container-mesaventures {
+    margin: 1rem;
+    padding: 10px 0;
+
+    h3 {
+      font-size: 1em;
+    }
+
+    h3,
+    p {
+      margin: 5px;
+      max-width: 425px;
+      color: black
+    }
+
+    a {
+      color: black;
+    }
+
+    .image {
+      max-height: 370px;
+      max-width: 525px;
+      margin: auto;
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .contenu {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 10px;
+
+      h4 {
+        color: black;
+        min-height: 32px;
+      }
+
+      span {
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+
+        &:hover,
+        &:active,
+        &:focus {
+          text-decoration: underline;
+        }
+      }
+
+      p {
+        font-size: 14px;
+        color: black;
+        flex-grow: 1;
+      }
+
+      div {
+        align-items: flex-end;
+
+        span {
+          align-items: center;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+
+  // SECTION BANNIERE QUIDDITCH
+
+  .container-contenu-banniere {
+    background-color: variables.$couleurprimaire;
+    height: 125px;
+    margin: 0;
+    padding-top: 1rem;
+    text-align: center;
+
+    a {
+      @include mixins.bouton;
+      width: 100px;
+      cursor: pointer;
+      margin: 1rem auto;
+    }
+  }
+
+  .container-image-banniere {
+    width: 100%;
+    height: 300px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+//  BREAK POINTS
+
+@include mixins.breakpoint(tablet-plus) {
+  main {
+    grid-column: 1/13;
+  }
+
+  .container-caroussel {
+    margin: 0 4rem 3rem 4rem;
+  }
+
+  .caroussel-premier-pas,
+  .caroussel-quidditch {
+    .container-carte {
+      .contenu-carte {
+        height: 100px;
+        flex-direction: column;
+
+        p {
+          height: 30px;
+          padding: 0;
+          margin: 0;
+        }
+        span {
+          height: 50px !important;
+          flex-basis: auto !important;
+          max-width: 100% !important;
+        }
+      }
+    }
+  }
+
+  .moments-cours,
+  .mesaventures {
+    ul {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .mesaventures {
+    .contenu {
+      p {
+        min-height: 110px;
+      }
+    }
+  }
+
+  .moments-cours {
+    .contenu {
+      p {
+        min-height: 60px;
+      }
+    }
+  }
+
+  .container-banniere-quidditch {
+    position: relative;
+
+    .container-contenu-banniere {
+      background-color: rgba(0, 0, 0, 0.527);
+      border-radius: 15px;
+      position: absolute;
+      padding: 10px 30px;
+      bottom: 10%;
+      font-weight: 700;
+      margin: 0 50px;
+      height: 100px;
+
+      h2 {
+        color: white;
+        margin-left: 0;
+      }
+
+      a {
+        justify-content: start;
+        margin: 0;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .mesaventures {
+    .contenu {
+      p {
+        min-height: 90px;
+      }
+    }
+  }
+}
+@media screen and (min-width: 1300px) {
+  .mesaventures {
+    .contenu {
+      p {
+        min-height: 70px;
+      }
+    }
+  }
+
+  .moments-cours {
+    .contenu {
+      p {
+        min-height: 45px;
+      }
+    }
+  }
+}
+
+@include mixins.breakpoint(desktop) {
+  main {
+    margin: 0 auto;
+  }
+
+  #hero {
+    .container-intro {
+      position: absolute;
+      bottom: 20% !important;
+      left: 15% !important;
+      text-align: start !important;
+
+      div:first-child {
+        background-color: transparent !important;
+      }
+      a {
+        padding: 15px 35px;
+      }
+      h2,
+      p {
+        color: variables.$couleurprimaire;
+        font-size: 23px;
+      }
+    }
+  }
+}

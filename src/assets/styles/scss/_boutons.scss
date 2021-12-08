@@ -1,0 +1,28 @@
+@use "variables";
+@use "mixins";
+
+.icon {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+
+  img {
+    height: 30px;
+    width: 30px;
+  }
+}
+
+a {
+  color: white;
+}
+
+.container-intro {
+  .btn {
+    @include mixins.bouton;
+
+    img {
+      height: 20px;
+      width: 20px;
+    }
+  }
+}
